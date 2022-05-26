@@ -1,19 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import DisplayLocation from "./DisplayLocation";
 
 class App extends React.Component {
     constructor(props){
         super(props);
         
-        this.state = { latitude: null, error: null };
+        this.state = { latitude: null, error: false };
         window.navigator.geolocation.getCurrentPosition(
             (position) => { this.setState({ latitude: position.coords.latitude }); },
-            (err)      => { this.setState({ error: "CAN'T GET CURRENT LOCATION" }); }
+            (err)      => { this.setState({ error: true }); }
         );
     }
 
     render() {
-        return <div><div>Latitude: { this.state.latitude }</div> <div>ERROR: { this.state.error }</div></div>
+        return <center><div><DisplayLocation state={this.state} /></div></center>
     }
 }
 
