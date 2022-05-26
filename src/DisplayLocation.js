@@ -1,4 +1,5 @@
 import React from "react";
+import SeasonDisplay from "./SeasonDisplay";
 
 const DisplayLocation = (props) => {
     let result = "";
@@ -14,6 +15,7 @@ const DisplayLocation = (props) => {
     return (
         <div>
             <h1>{result}</h1>
+            <SeasonDisplay state={props.state}/>
         </div>
     );
 };
