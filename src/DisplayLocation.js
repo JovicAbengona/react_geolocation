@@ -5,16 +5,16 @@ const DisplayLocation = (props) => {
     let result = "";
 
     if(props.state.error)
-        result = "ERROR: CAN'T GET LOCATION";
+        result = <h1 className="ui red header">ERROR: CAN'T GET LOCATION</h1>;
     else
         if(props.state.latitude === null)
-            result = "GETTING LOCATION...";
+            result = <div><i class="ui active inline loader"></i><h1 className="ui grey header">GETTING LOCATION... </h1></div>;
         else
-            result = `LATITUDE: ${props.state.latitude}`;
+            result = <h1>LATITUDE: {props.state.latitude}</h1>;
 
     return (
         <div>
-            <h1>{result}</h1>
+            {result}
             <SeasonDisplay state={props.state}/>
         </div>
     );
